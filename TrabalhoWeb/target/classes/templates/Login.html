@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/logar" method="POST">
+		<label>Usuário:</label><br>
+		<input type="text" name="username">
+		<br>
+		<label>Senha: </label>
+		</br>
+		<input type="password" name="password">
+		
+		<br>
+		<br>
+		<input type="submit" value="Logar">
+	
+	</form>	
+</body>
+</html>

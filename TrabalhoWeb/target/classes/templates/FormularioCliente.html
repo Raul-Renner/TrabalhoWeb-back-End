@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<title>Cadastro Clientes</title>
+</head>
+<body>
+	<form action="/cliente/cadastrar" method="POST" th:object = "${cliente}" enctype="multipart/form-data">
+		<input type="hidden" th:field = "*{codigo}">
+	
+	<div class="alert alert-success" role="alert"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}"></span>
+		</div>
+
+		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.detailedErrors()}">
+				<span th:text="${detailedError.message}"> </span>
+			</div>
+</div>
+	<label>Nome:</label><br>
+	<input type="text" th:field = "*{nome}" placeholder="digite seu nome...">
+	<br>
+	
+	<label>CPF:</label><br>
+	<input type= "text" th:field = "*{cpf}" placeholder="digite seu cpf...">
+	<br>
+	
+	<label>Data de Nascimento:</label>
+	<br>
+	<input type="text" th:field = "*{dataNascimento}" placeholder="data de nascimento...">
+	<br>
+	
+	<label>Endereço:</label><br>
+	<input type="text" th:field = "*{endereco}" placeholder="seu endereço...">
+	<br>
+	
+	<label>Email</label>
+	<br>
+	<input type="email" th:field = "*{email}" placeholder="digite seu email...">
+	<br>
+	
+		<div class="form-group">
+			<label for="passwordLabel">username:</label>
+			<input type="text" class="form-control" id="exampleInputPassword4" th:field="*{login}">
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="passwordLabel">Password:</label>
+			<input width="200" type="text" class="form-control" id="exampleInputPassowrd4" th:field="*{senha}">
+		</div>
+	
+	<input type="submit" name="cadastrar" value="Cadastrar">
+
+	</form>
+		<script src="/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

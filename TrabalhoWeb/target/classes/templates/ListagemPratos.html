@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		
+
+
+			
+	
+	<table class="table">
+		 <thead>
+		 		<tr>
+		 			<th scope="col">Imagem</th>
+		 			<th scope="col">Codigo</th>
+		 			<th scope="col">Nome</th>
+		 			<th scope="col">Preço</th>		 	
+		 		</tr>				 
+		 </thead>
+		 <tbody>
+		 	<tr th:each = "prato : ${listagemDePratos}">
+		 		<td><img width="200" height="200" th:src="@{'/images/' +${prato.nome}+.png}"></td>
+		 		<td th:text = "${prato.codigo}"><a th:field = "@{/prato/formPrato}"></a></td>
+		 		<td th:text = "${prato.nome}"></td>
+		 		<td th:text = "${prato.preco}"></td>
+		 		
+		 		<td><a th:href="@{/prato/excluir/{codigo} (codigo = ${prato.codigo})}" class="btn btn-danger">Excluir</a></td>
+		 		<td><a th:href="@{/prato/atualizar/{codigo}(codigo = ${prato.codigo})}" class="btn btn-primary">Atualizar</a></td>
+		 	</tr>
+		 
+		 
+		 </tbody>
+	</table>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

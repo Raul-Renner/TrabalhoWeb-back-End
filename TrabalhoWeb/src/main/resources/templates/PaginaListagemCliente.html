@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Nome</th>
+					<th scope="col">CPF</th>
+					<th scope="col">Data Nascimento</th>
+					<th scope="col">Endereco</th>
+					<th scope="col">Email</th>
+				
+				</tr>
+			
+			</thead>
+			
+			<tbody>
+				<tr th:each = "cliente : ${listagemDeClientes}">
+					<td th:text = "${cliente.codigo}"><a th:field = "@{/cliente/formCliente}"></a></td>
+					<td th:text = "${cliente.nome}"></td>
+					<td th:text = "${cliente.cpf}"></td>
+					<td th:text = "${cliente.dataNascimento}"></td>
+					<td th:text = "${cliente.endereco}"></td>
+					<td th:text = "${cliente.email}"></td>
+				
+					<td><a th:href = "@{/cliente/excluir/{codigo} (codigo = ${cliente.codigo})}" class="btn btn-danger">Excluir</a></td>
+					<td><a th:href = "@{/cliente/atualizar/{codigo} (codigo = ${cliente.codigo})}" class="btn btn-primary">Atualizar</a></td>
+						
+				</tr>
+			
+			
+			</tbody>
+			
+	
+	
+	
+	</table>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
